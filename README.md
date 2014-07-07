@@ -3,9 +3,10 @@
   
   
 
- Usage:
 
- myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...
+		Usage:
+
+ 		myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...
 
 
  Flags:
