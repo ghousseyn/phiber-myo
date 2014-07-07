@@ -22,6 +22,8 @@ abstract class loader
     $usage = PHP_EOL.self::USAGE.self::VERSION.PHP_EOL.self::AUTHOR.PHP_EOL;
     $usage .= PHP_EOL.' Usage:'.PHP_EOL.PHP_EOL;
     $usage .= ' myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...'.PHP_EOL.PHP_EOL.PHP_EOL;
+    $usage .= ' Flags:'.PHP_EOL.PHP_EOL;
+    $usage .= " -i\tPreserve case. Files always created in lowercase if this flag is not on".PHP_EOL.PHP_EOL;
     $usage .= ' Options:'.PHP_EOL.PHP_EOL;
     $path = __dir__.DIRECTORY_SEPARATOR.'cmd';
     $list = scandir($path);

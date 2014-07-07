@@ -1,22 +1,27 @@
 
   Myo Phiber's Command Line Tool v0.6
-
+  
+  
 
  Usage:
 
  myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...
 
 
+ Flags:
+
+ -i	Preserve case. Files always created in lowercase if this flag is not on
+
  Options:
 
- entity		Creates an entity file. The entity represents a table name.
+ entity		     Creates an entity file. The entity represents a table name.
 
 		 Usage:
 
 		 myo entity <entityname>
 
 
- ext		Creates myo extensions.
+ ext		     Creates myo extensions.
 
   		 Usage:
 
@@ -27,14 +32,14 @@
   		 myo <extension name>
 
 
- help		Provides more information about commands.
+ help		     Provides more information about commands.
 
 		 Usage:
 
 		 myo help <command>
 
 
- mvc		Creates different parts of the MVC layout.
+ mvc		     Creates different parts of the MVC layout.
 
   		 mvc <flag> [option]
 

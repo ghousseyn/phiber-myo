@@ -4,11 +4,14 @@ use myo\loader;
 
 class help extends loader
 {
+
+  public $requireConfig = false;
 const USAGE = "Provides more information about commands.
 
 \t\t Usage:
 
 \t\t myo help <command>\n\n";
+
 
 /**
 * Execution point of your extension
