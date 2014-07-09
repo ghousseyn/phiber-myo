@@ -17,6 +17,12 @@
  entity		Creates an entity file or generate entities from db with -g
 
 		 Usage:
+		 
+		 myo entity <entity name>
+		 
+		 Creates an empty entity file
+		 
+		 
 
 		 myo entity -g 		
 
@@ -33,7 +39,8 @@
 		 --db-name 		 Database name, overides --db-dsn
 		 --db-user 		 Database username
 		 --db-pass 		 Database password
-		 --entity-path 		 The path to put generated files in
+		 --entity-path 		 The folder to put generated files in
+		 
 
 
  ext		Creates myo extensions.

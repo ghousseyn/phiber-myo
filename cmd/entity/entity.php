@@ -8,6 +8,11 @@ const USAGE = "Creates an entity file or generate entities from db with -g
 
 \t\t Usage:
 
+\t\t myo entity <entity name>
+
+\t\t Creates an empty entity file
+
+
 \t\t myo entity -g \t\t
 
 \t\t Generates entity files from the database
@@ -23,7 +28,8 @@ const USAGE = "Creates an entity file or generate entities from db with -g
 \t\t --db-name \t\t Database name, overides --db-dsn
 \t\t --db-user \t\t Database username
 \t\t --db-pass \t\t Database password
-\t\t --entity-path \t\t The path to put generated files in
+\t\t --entity-path \t\t The folder to put generated files in
+
 
 ";
 /**
