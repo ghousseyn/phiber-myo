@@ -27,7 +27,7 @@ class mvc extends loader
 
   \t\t --action <action name>
 
-  \t\t Creates an action for a controller
+  \t\t Creates an action for a given controller
 
   ";
 

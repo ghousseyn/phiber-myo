@@ -7,6 +7,7 @@ abstract class loader
   const AUTHOR ='  Author: Housseyn Guettaf <ghoucine@gmail.com>';
   const VERSION = 'v0.6';
 
+  protected $root = __dir__;
   protected $requireConfig = true;
   protected $appConfig;
   protected $args = array(

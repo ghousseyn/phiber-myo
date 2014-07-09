@@ -1,12 +1,10 @@
 
   Myo Phiber's Command Line Tool v0.6
-  
-  
+  Author: Housseyn Guettaf <ghoucine@gmail.com>
 
+ Usage:
 
-		Usage:
-
- 		myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...
+ myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...
 
 
  Flags:
@@ -15,14 +13,29 @@
 
  Options:
 
- entity		     Creates an entity file. The entity represents a table name.
+ entity		Creates an entity file or generate entities from db with -g
 
 		 Usage:
 
-		 myo entity <entityname>
+		 myo entity -g 		
+
+		 Generates entity files from the database
+
+		 with no options it will use your config to access the db and
+
+		 put the files into the entity folder
+
+		 options:
+
+		 --db-dsn 		 The dsn of your db
+		 --db-host 		 Database host
+		 --db-name 		 Database name, overides --db-dsn
+		 --db-user 		 Database username
+		 --db-pass 		 Database password
+		 --entity-path 		 The path to put generated files in
 
 
- ext		     Creates myo extensions.
+ ext		Creates myo extensions.
 
   		 Usage:
 
@@ -33,14 +46,14 @@
   		 myo <extension name>
 
 
- help		     Provides more information about commands.
+ help		Provides more information about commands.
 
 		 Usage:
 
 		 myo help <command>
 
 
- mvc		     Creates different parts of the MVC layout.
+ mvc		Creates different parts of the MVC layout.
 
   		 mvc <flag> [option]
 
@@ -63,6 +76,6 @@
 
   		 --action <action name>
 
-  		 Creates an action for a controller
+  		 Creates an action for a given controller
 
   

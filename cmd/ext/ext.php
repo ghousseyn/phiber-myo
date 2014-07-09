@@ -21,15 +21,19 @@ class ext extends loader
     array_shift($args['commands']);
     if(isset($args['commands'][0]) && strpos($args['commands'][0], " ") === false){
       $ext = strtolower($args['commands'][0]);
-      $dir = 'cmd'.DIRECTORY_SEPARATOR.$ext;
+      $dir = $this->root.DIRECTORY_SEPARATOR.'cmd'.DIRECTORY_SEPARATOR.$ext;
       $path = $dir.DIRECTORY_SEPARATOR.$ext.'.php';
       if(is_dir($dir)){
         throw new \Exception("Extension $ext already exists!");
       }
       $template = $this->template();
       $code = str_replace('extname', $ext, $template);
-      mkdir($dir,0755);
-      chmod($dir, 0755);
+      if(mkdir($dir,0755)){
+        chmod($dir, 0755);
+      }else{
+        throw new \Exception('Could not create folder for extension '.$ext);
+      }
+
       file_put_contents($path, $code);
       print 'Extension '.$ext.' was created successfully.';
     }else{
