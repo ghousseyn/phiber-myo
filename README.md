@@ -1,5 +1,5 @@
 
-  Myo Phiber's Command Line Tool v0.6
+  Myo Phiber's Command Line Tool v0.6.1
 
 
  	Usage:
@@ -9,7 +9,7 @@
 
  Flags:
 
- 	-i		Preserve case. Files always created in lowercase if this flag is not on
+ 	-i		Preserve case otherwise files will always be created in lowercase
  	-g		Generate entity files when used with myo entity
 
  Options:

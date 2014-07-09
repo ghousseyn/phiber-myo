@@ -5,7 +5,7 @@ abstract class loader
 {
   const USAGE = '  Myo Phiber\'s Command Line Tool ';
   const AUTHOR ='  Author: Housseyn Guettaf <ghoucine@gmail.com>';
-  const VERSION = 'v0.6';
+  const VERSION = 'v0.6.1';
 
   protected $root = __dir__;
   protected $requireConfig = true;
@@ -24,8 +24,8 @@ abstract class loader
     $usage .= PHP_EOL.' Usage:'.PHP_EOL.PHP_EOL;
     $usage .= ' myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...'.PHP_EOL.PHP_EOL.PHP_EOL;
     $usage .= ' Flags:'.PHP_EOL.PHP_EOL;
-    $usage .= " -i\t\tPreserve case otherwise files always created in lowercase".PHP_EOL.PHP_EOL;
-    $usage .= " -g\t\tGenerate entity files when used with myo entity".PHP_EOL.PHP_EOL;
+    $usage .= " -i\tPreserve case otherwise files will always be created in lowercase".PHP_EOL.PHP_EOL;
+    $usage .= " -g\tGenerate entity files when used with myo entity".PHP_EOL.PHP_EOL;
     $usage .= PHP_EOL.PHP_EOL.' Options:'.PHP_EOL.PHP_EOL;
     $path = __dir__.DIRECTORY_SEPARATOR.'cmd';
     $list = scandir($path);
