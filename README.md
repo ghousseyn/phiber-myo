@@ -1,15 +1,16 @@
 
   Myo Phiber's Command Line Tool v0.6
-  Author: Housseyn Guettaf <ghoucine@gmail.com>
 
- Usage:
 
- myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...
+ 	Usage:
+
+ 	myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...
 
 
  Flags:
 
- -i	Preserve case. Files always created in lowercase if this flag is not on
+ 	-i		Preserve case. Files always created in lowercase if this flag is not on
+ 	-g		Generate entity files when used with myo entity
 
  Options:
 
