@@ -5,7 +5,7 @@ abstract class loader
 {
   const USAGE = '  Myo Phiber\'s Command Line Tool ';
   const AUTHOR ='  Author: Housseyn Guettaf <ghoucine@gmail.com>';
-  const VERSION = 'v0.6.1';
+  const VERSION = 'v0.6.2';
 
   protected $root = __dir__;
   protected $requireConfig = true;

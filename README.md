@@ -1,5 +1,5 @@
 
-  Myo Phiber's Command Line Tool v0.6.1
+  Myo Phiber's Command Line Tool v0.6.2
 
 
  	Usage:
@@ -14,7 +14,17 @@
 
  Options:
 
- entity		Creates an entity file or generate entities from db with -g
+ 	app		Creates a new Phiber application
+        
+		 Usage:
+		 
+		 myo app <appname>
+		 
+		 Options:
+		 
+		 --app-path		Specify the application path
+		 
+ 	entity		Creates an entity file or generate entities from db with -g
 
 		 Usage:
 		 
@@ -43,7 +53,7 @@
 		 
 
 
- ext		Creates myo extensions.
+ 	ext		Creates myo extensions.
 
   		 Usage:
 
@@ -54,14 +64,14 @@
   		 myo <extension name>
 
 
- help		Provides more information about commands.
+ 	help		Provides more information about commands.
 
 		 Usage:
 
 		 myo help <command>
 
 
- mvc		Creates different parts of the MVC layout.
+ 	mvc		Creates different parts of the MVC layout.
 
   		 mvc <flag> [option]
 
