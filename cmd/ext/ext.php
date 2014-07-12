@@ -23,6 +23,8 @@ class ext extends loader
       $ext = strtolower($args['commands'][0]);
       $dir = $this->root.DIRECTORY_SEPARATOR.'cmd'.DIRECTORY_SEPARATOR.$ext;
       $path = $dir.DIRECTORY_SEPARATOR.$ext.'.php';
+      $help = $dir.DIRECTORY_SEPARATOR.$this->helpFile;
+
       if(is_dir($dir)){
         throw new \Exception("Extension $ext already exists!");
       }
@@ -35,6 +37,8 @@ class ext extends loader
       }
 
       file_put_contents($path, $code);
+      file_put_contents($help, 'No more information is available at this time.');
+
       print 'Extension '.$ext.' was created successfully.';
     }else{
       print 'Please specify the name of the extension.'.PHP_EOL.'Make sure there are no spaces in the extension name.';

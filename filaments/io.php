@@ -18,7 +18,6 @@ class io
 
     }else{
       $handle = fopen ("php://stdin","r");
-      stream_set_blocking($handle, 1);
       $line = fgets($handle);
       if(strlen(trim($line)) >0){
         return trim($line);

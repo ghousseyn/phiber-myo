@@ -12,7 +12,7 @@
  	-i		Preserve case otherwise files will always be created in lowercase
  	-g		Generate entity files when used with myo entity
 
- Options:
+ Commands:
 
  	app		Creates a new Phiber application
         
