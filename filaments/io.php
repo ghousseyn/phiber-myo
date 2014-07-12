@@ -3,16 +3,92 @@ namespace myo\filaments;
 
 class io
 {
-  public function getInput(){
-    $handle = fopen ("php://stdin","r");
-    $line = fgets($handle);
-    if(strlen(trim($line)) >0){
-      return trim($line);
+  public function getInput($hide = false){
+
+    if($hide){
+      if (strtoupper(substr(PHP_OS, 0, 3)) !== 'WIN') {
+        system('stty -echo');
+        $psw = fgets(STDIN);
+        system('stty echo');
+      } else{
+        $psw = `input.exe`;
+      }
+
+      return rtrim($psw, PHP_EOL);
+
     }else{
-      $this->usage();
+      $handle = fopen ("php://stdin","r");
+      stream_set_blocking($handle, 1);
+      $line = fgets($handle);
+      if(strlen(trim($line)) >0){
+        return trim($line);
+      }else{
+        return chr(24);
+      }
+    }
+
+  }
+  public function chkFor($protocol)
+  {
+
+    $syswr = stream_get_wrappers();
+
+    $syswr[] = extension_loaded  ('openssl')?'ssl':null;
+
+    return in_array($protocol,$syswr);
+  }
+  public function archiveOpen($archive)
+  {
+    $zip = new \ZipArchive;
+    $res = $zip->open($archive, \ZipArchive::CREATE);
+
+    if ( $res === TRUE) {
+      //CODE GOES HERE
+      return $zip;
+
+    } else {
+      switch($res){
+        case \ZipArchive::ER_EXISTS:
+          $ErrMsg = "File already exists.";
+          break;
+
+        case \ZipArchive::ER_INCONS:
+          $ErrMsg = "Zip archive inconsistent.";
+          break;
+
+        case \ZipArchive::ER_MEMORY:
+          $ErrMsg = "Malloc failure.";
+          break;
+
+        case \ZipArchive::ER_NOENT:
+          $ErrMsg = "No such file.";
+          break;
+
+        case \ZipArchive::ER_NOZIP:
+          $ErrMsg = "Not a zip archive.";
+          break;
+
+        case \ZipArchive::ER_OPEN:
+          $ErrMsg = "Can't open file.";
+          break;
+
+        case \ZipArchive::ER_READ:
+          $ErrMsg = "Read error.";
+          break;
+
+        case \ZipArchive::ER_SEEK:
+          $ErrMsg = "Seek error.";
+          break;
+
+        default:
+          $ErrMsg = "Unknow error";
+          break;
+
+
+      }
+      die( 'ZipArchive Error: ' . $ErrMsg);
     }
   }
-
   public function arguments ( $args )
   {
     array_shift( $args );
