@@ -111,25 +111,28 @@ const USAGE = "Creates a new Phiber application
 
       rename($this->path.'phiber-sample-app-master', $path);
 
-      $this->configure();
+      if(!$this->configure()){
 
-      print PHP_EOL.'Done! '.PHP_EOL;
+        print PHP_EOL.'Done! '.PHP_EOL;
 
-      print PHP_EOL.'Further steps: '.PHP_EOL;
+        print PHP_EOL.'Further steps: '.PHP_EOL;
 
-      print PHP_EOL.'1- cd to '.$this->name.PHP_EOL;
+        $msg = PHP_EOL.'Edit the config.php file in the "application" directory.'.PHP_EOL;
 
-      print PHP_EOL.'2- Run "composer install" now to install dependencies.'.PHP_EOL;
+      }else{
+        $msg = PHP_EOL.'Check the config.php file in the "application" directory for other settings.'.PHP_EOL;
+      }
 
-      print PHP_EOL.'3- Edit the config.php file in the "application" directory.'.PHP_EOL;
+      print PHP_EOL.'Run "composer install" now to install dependencies.'.PHP_EOL;
 
-
+      print $msg;
   }
   protected function configure()
   {
     print PHP_EOL.'Would you like to configure '.$this->name.' [yes]? (yes/no)'.PHP_EOL;
     $answer = $this->io->getInput();
     if($answer == 'yes' || $answer == chr(24)){
+
       $path = $this->path.$this->name.DIRECTORY_SEPARATOR.'application'.DIRECTORY_SEPARATOR;
       $confFile = $path.'config.php';
 
@@ -153,10 +156,20 @@ const USAGE = "Creates a new Phiber application
       $config = str_replace('<application>', rtrim($path,'/\\'), $config);
       $config = str_replace('<library>', $this->path.$this->name.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'phiber'.DIRECTORY_SEPARATOR.'phiber'.DIRECTORY_SEPARATOR.'library', $config);
 
+      if(isset($this->args['options']['phiber-ver'])){
+        $version = $this->args['options']['phiber-ver'];
+        $json = $this->path.$this->name.DIRECTORY_SEPARATOR.'composer.json';
+        $composerJson = file_get_contents($json);
+        $composerArr = json_decode($composerJson);
+        $composerArr['require']['phiber/phiber'] = $version;
+        $composerJson = json_encode($composerArr);
+        file_put_contents($json, $composerJson);
+      }
       file_put_contents($confFile, $config);
-
+      print PHP_EOL;
+      return true;
     }else{
-
+      return false;
     }
   }
 }
