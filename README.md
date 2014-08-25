@@ -1,5 +1,12 @@
 
-  Myo Phiber's Command Line Tool v0.6.2
+   _ __ ___  _   _  ___
+ | '_ ` _ \| | | |/ _ \
+ | | | | | | |_| | (_) |
+ |_| |_| |_|\__, |\___/
+             __/ |
+            |___/
+                    Phiber's Command Line Tool v0.6.3
+
 
 
  	Usage:
@@ -13,6 +20,8 @@
  	-g		Generate entity files when used with myo entity
 
  Commands:
+       
+       version		Prints the version number
 
  	app		Creates a new Phiber application
         
