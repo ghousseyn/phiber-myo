@@ -1,11 +1,6 @@
 
-   _ __ ___  _   _  ___
- | '_ ` _ \| | | |/ _ \
- | | | | | | |_| | (_) |
- |_| |_| |_|\__, |\___/
-             __/ |
-            |___/
-                    Phiber's Command Line Tool v0.6.3
+ 
+Phiber's Command Line Tool v0.6.3
 
 
 
