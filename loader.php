@@ -3,12 +3,20 @@ namespace myo;
 
 abstract class loader
 {
-  const USAGE = '  Myo Phiber\'s Command Line Tool ';
-  const AUTHOR ='  Author: Housseyn Guettaf <ghoucine@gmail.com>';
+  const ASCILOGO = '
+  _ __ ___  _   _  ___
+ | \'_ ` _ \| | | |/ _ \
+ | | | | | | |_| | (_) |
+ |_| |_| |_|\__, |\___/
+             __/ |
+            |___/
+';
+  const USAGE = '                    Phiber\'s Command Line Tool ';
+  const AUTHOR ='                  Author: Housseyn Guettaf <ghoucine@gmail.com>';
   const VERSION = 'v0.6.3';
 
   protected $root = __dir__;
-  protected $requireConfig = true;
+  protected $requireConfig = false;
   protected $appConfig;
   protected $args = array(
                        'commands' => array(),
@@ -21,7 +29,7 @@ abstract class loader
 
   public function usage()
   {
-    $usage = PHP_EOL.self::USAGE.self::VERSION.PHP_EOL.self::AUTHOR.PHP_EOL;
+    $usage = PHP_EOL.self::ASCILOGO.self::USAGE.self::VERSION.PHP_EOL.self::AUTHOR.PHP_EOL;
     $usage .= PHP_EOL.' Usage:'.PHP_EOL.PHP_EOL;
     $usage .= ' myo <comand> <flag> [[--option1 value][--option2 = value]...] -- arg1 arg2 ...'.PHP_EOL.PHP_EOL.PHP_EOL;
     $usage .= ' Flags:'.PHP_EOL.PHP_EOL;

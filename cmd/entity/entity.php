@@ -4,6 +4,7 @@ use myo\loader;
 
 class entity extends loader
 {
+public $requireConfig = true;
 const USAGE = "Creates an entity file or generate entities from db with -g
 
 \t\t Usage:
