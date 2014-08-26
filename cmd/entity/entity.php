@@ -51,10 +51,12 @@ const USAGE = "Creates an entity file or generate entities from db with -g
   public function generateEntities()
   {
     $path = $this->appConfig->application.DIRECTORY_SEPARATOR.'entity';
-
+    $dsnParts = explode(':',$this->appConfig->PHIBER_DB_DSN);
+    $driver = $dsnParts[0];
     if(isset($this->args['options']['db-name'])){
       $host  = isset($this->args['options']['db-host'])?$this->args['options']['db-host']:'localhost';
-      $dsn = 'mysql:host='.$host.';dbname='.$this->args['options']['db-name'];
+      $driver = isset($this->args['options']['db-driver'])?$this->args['options']['db-driver']:$driver;
+      $dsn = $driver.':host='.$host.';dbname='.$this->args['options']['db-name'];
     }else{
       $dsn = isset($this->args['options']['db-dsn'])?$this->args['options']['db-dsn']:$this->appConfig->PHIBER_DB_DSN;
     }
@@ -78,8 +80,9 @@ const USAGE = "Creates an entity file or generate entities from db with -g
       }
     }
 
-    require $this->appConfig->library.DIRECTORY_SEPARATOR.'oosql'.DIRECTORY_SEPARATOR.'oogen.php';
-    $gen = new \Phiber\oosql\oogen($dsn, $user, $pass);
+    require $this->appConfig->library.DIRECTORY_SEPARATOR.'oosql'.DIRECTORY_SEPARATOR.$driver.'.php';
+    $driverClass = "\\Phiber\\oosql\\$driver";
+    $gen = new $driverClass($dsn, $user, $pass);
     $gen->path = $path;
     $gen->generate();
   }

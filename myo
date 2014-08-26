@@ -1,8 +1,8 @@
 #!/usr/bin/php -q
 <?php
 
-$path = realpath(__dir__);
-$argv[] = '--conf-file='.$path.'/config.php';
 
-include $path.'/myo.php';
+$argv[] = '--conf-file='.getcwd().'/config.php';
+
+include realpath(__dir__).'/myo.php';
 ?>
