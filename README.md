@@ -1,6 +1,6 @@
 
  
-Phiber's Command Line Tool v0.6.3
+Phiber's Command Line Tool v0.6.5
 
 
 
@@ -48,6 +48,7 @@ Phiber's Command Line Tool v0.6.3
 
 		 options:
 
+		 --db-driver 		 The driver of your database (defaults to mysql)
 		 --db-dsn 		 The dsn of your db
 		 --db-host 		 Database host
 		 --db-name 		 Database name, overides --db-dsn
@@ -100,4 +101,4 @@ Phiber's Command Line Tool v0.6.3
 
   		 Creates an action for a given controller
 
-  
+  	version		Prints the current version of Myo
