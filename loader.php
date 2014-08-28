@@ -13,7 +13,7 @@ abstract class loader
 ';
   const USAGE = '                    Phiber\'s Command Line Tool ';
   const AUTHOR ='                  Author: Housseyn Guettaf <ghoucine@gmail.com>';
-  const VERSION = 'v0.6.3';
+  const VERSION = 'v0.6.5';
 
   protected $root = __dir__;
   protected $requireConfig = false;
