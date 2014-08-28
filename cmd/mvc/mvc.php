@@ -34,7 +34,7 @@ class mvc extends loader
   public $module = 'default';
   public $controller = 'index';
   public $model,$action;
-
+  public $requireConfig = true;
   public function run($args)
   {
     $this->args = $args;

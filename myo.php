@@ -43,14 +43,14 @@ class myo extends loader
         }else{
           $confPath = $this->args['options']['conf-file'];
         }
-echo $confPath;
+
         if(!stream_resolve_include_path($confPath)){
           print PHP_EOL.'Can\'t find config.php!'.PHP_EOL.'Please cd to your application\'s folder and try again'.PHP_EOL.'You can specify the path using the conf-path option:'.PHP_EOL.PHP_EOL.' myo <command> --conf-path /path/to/config.php'.PHP_EOL;
           return;
         }
 
         require $confPath;
-        $cmdObj->appConfig = \config::getInstance();
+        $cmdObj->appConfig = \Phiber\config::getInstance();
       }
       try{
         $return = $cmdObj->run($this->args);

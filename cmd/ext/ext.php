@@ -54,6 +54,7 @@ use myo\loader;
 class extname extends loader
 {
 const USAGE = 'Usage description of your extension';
+public $requireConfig = false; // Change this to true if you need config loaded
 /**
 * Execution point of your extension
 *@throws Exception
