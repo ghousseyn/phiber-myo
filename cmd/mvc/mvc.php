@@ -93,7 +93,7 @@ EOT;
     }
     if(!stream_resolve_include_path($path)){
       $code = str_replace('controllername', $controller, $temp);
-      $code = str_replace('mainaction', $this->appConfig->PHIBER_CONTROLLER_DEFAULT_METHOD, $code);
+      $code = str_replace('mainaction', 'action' . $this->appConfig->PHIBER_CONTROLLER_DEFAULT_METHOD, $code);
 
       $view = str_replace('controllername', $controller, $viewTemp);
       file_put_contents($path, $code);
@@ -156,7 +156,7 @@ EOT;
       return $action;
     }
     $code = rtrim($code,'}');
-    $code .= str_replace('actionname', $action, $temp);
+    $code .= str_replace('actionname', 'action' . $action, $temp);
    $viewTemp = str_replace('actionname',$action,$viewTemp);
     file_put_contents($path, $code);
     file_put_contents($viewPath, $viewTemp);
