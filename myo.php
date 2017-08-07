@@ -1,6 +1,5 @@
 <?php
 namespace myo;
-require 'loader.php';
 class myo extends loader
 {
   private $log = array();
@@ -34,7 +33,7 @@ class myo extends loader
 
     $path = 'cmd'.DIRECTORY_SEPARATOR.$Ns[0].DIRECTORY_SEPARATOR.$Ns[0].'.php';
 
-    if(stream_resolve_include_path($path)){
+    if(file_exists($path)){
       $cmd =  'myo\\cmd'.'\\'.$Ns[0].'\\'.$Ns[0];
       $cmdObj = new $cmd;
       if($cmdObj->requireConfig){
@@ -44,13 +43,14 @@ class myo extends loader
           $confPath = $this->args['options']['conf-file'];
         }
 
-        if(!stream_resolve_include_path($confPath)){
+        if(!file_exists($confPath)){
           print PHP_EOL.'Can\'t find config.php!'.PHP_EOL.'Please cd to your application\'s folder and try again'.PHP_EOL.'You can specify the path using the conf-path option:'.PHP_EOL.PHP_EOL.' myo <command> --conf-path /path/to/config.php'.PHP_EOL;
           return;
         }
 
-        require $confPath;
+        require_once $confPath;
         $cmdObj->appConfig = \Phiber\config::getInstance();
+
       }
       try{
         $return = $cmdObj->run($this->args);
@@ -71,5 +71,4 @@ class myo extends loader
 
 }
 
-$myo = new myo();
-$myo->start($argv);
+

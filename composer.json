@@ -1,0 +1,25 @@
+{
+  "name": "phiber/myo",
+  "type": "library",
+  "description": "PHP Phiber command line tool",
+  "keywords": ["Framework", "ORM", "MVC"],
+  "homepage": "http://github.com/ghousseyn/phiber-myo",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Housseyn Guettaf",
+      "email": "ghoucine@gmail.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=5.3.0",
+    "phiber/phiber": "1.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "myo\\": "./"
+    }
+  },
+  "bin": ["bin/myo"]
+}

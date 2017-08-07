@@ -128,7 +128,7 @@ class io
 
         // is it the syntax '--option=argument'?
         if (strpos($com,'='))
-          list($com,$value) = split("=",$com,2);
+          list($com,$value) = explode("=",$com,2);
 
         // is the option not followed by another option but by arguments
         elseif (isset($args[0]) && strpos($args[0],'-') !== 0)

@@ -3,6 +3,7 @@
 
 
 $argv[] = '--conf-file='.getcwd().'/config.php';
-
-include realpath(__dir__).'/myo.php';
+require __DIR__ . '/vendor/autoload.php';
+$myo = new myo\myo();
+$myo->start($argv);
 ?>
