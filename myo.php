@@ -31,7 +31,7 @@ class myo extends loader
       $this->args['options'] = array_map('strtolower',$this->args['options']);
     }
 
-    $path = 'cmd'.DIRECTORY_SEPARATOR.$Ns[0].DIRECTORY_SEPARATOR.$Ns[0].'.php';
+    $path = dirname(__FILE__) . '/cmd'.DIRECTORY_SEPARATOR.$Ns[0].DIRECTORY_SEPARATOR.$Ns[0].'.php';
 
     if(file_exists($path)){
       $cmd =  'myo\\cmd'.'\\'.$Ns[0].'\\'.$Ns[0];
